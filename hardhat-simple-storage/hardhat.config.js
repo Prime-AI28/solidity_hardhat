@@ -1,5 +1,5 @@
-const { task } = require('hardhat/config')
-const nomiclabsPlugin = require('solidity-coverage')
+// const { test } = require('hardhat/config')
+// const nomiclabsPlugin = require('solidity-coverage')
 
 require('@nomicfoundation/hardhat-toolbox')
 require('dotenv').config()
@@ -7,13 +7,15 @@ require('@nomiclabs/hardhat-etherscan')
 //require('@nomiclabs/hardhat-waffle')
 require('./tasks/block-number')
 require('hardhat-gas-reporter')
+require('solidity-coverage')
 
-/** @type import('hardhat/config').HardhatUserConfig */
+// /** @type import('hardhat/config').HardhatUserConfig */
 
-const Goerli_RPC = process.env.Goerli_RPC_URL
-const PRIVATE_KEY = process.env.PRIVATE_KEY
-const API_KEY = process.env.ETHERSCAN_API_KE
-const COIN_API_KEY = process.env.COIN_API_KEY
+const Goerli_RPC =
+    process.env.Goerli_RPC_URL || 'https://goerli.infura.io/v3/your-api-key'
+const PRIVATE_KEY = process.env.PRIVATE_KEY || '0xkey'
+const API_KEY = process.env.ETHERSCAN_API_KE || 'key'
+const COIN_API_KEY = process.env.COIN_API_KEY || 'key'
 module.exports = {
     defaultNetwork: 'hardhat',
     networks: {
